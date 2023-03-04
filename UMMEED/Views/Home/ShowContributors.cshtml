@@ -1,0 +1,41 @@
+@using BOL;
+
+@{
+    List<Contributors> clist = ViewData["Cont"] as List<Contributors>;
+}
+<html>
+    <meta>
+
+    <head>
+
+    </head>
+      <div><h3><u>Welcome to Contributors Page</u></h3></div><br><br>
+
+    <body>
+
+        <form action="/home/ShowContributors" method="get">
+          <table class="table">
+             <tr>
+                <th>
+                    Contributor Name
+                </th>
+                <th>
+                    Paid Amount
+                </th>
+                <th>
+                    Contributor Email
+                </th>
+             </tr>
+              @{
+                 foreach(Contributors co in clist){
+                    <tr>
+                        <td>@co.Cname</td>
+                        <td>@co.Paid_amount</td>
+                        <td>@co.Cmail</td>
+                    </tr>
+                 }
+              }
+          </table>
+        </form>
+    </body>
+</html>

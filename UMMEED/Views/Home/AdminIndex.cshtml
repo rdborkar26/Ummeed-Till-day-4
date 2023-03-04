@@ -1,0 +1,45 @@
+@using BOL;
+
+@{
+    List<ChildSts> chlist = ViewData["Child"] as List<ChildSts>;
+}
+
+<html>
+  <meta>
+  
+  <head></head>
+  <div align="left"><h3 style="text-shadow:6px 6px 7px #58a1a8"><u>Welcome Admin Page</u></h3></div>
+   <div align="right"><a class="btn btn-primary btn-rounded" href="/home/index" style="text-shadow:6px 6px 7px #202129">LOG OUT</a></div>
+  <body>
+        
+       <form action="/Home/AdminIndex" method="get">
+         <div align="left"><h4><u>@TempData["message"]</u></h4></div>
+         <table class="table">
+            <tr>
+                <th>ChilD ID</th>
+                <th>Child Name</th>
+                <th>Child Payment</th>
+                <th>Paid date</th>
+            </tr>
+           
+                @{
+                    foreach(ChildSts ch in chlist){
+                      <tr>
+                        <td>@ch.Chid</td>
+                        <td>@ch.Chname</td>
+                        <td>@ch.Payment</td>
+                        <td>@ch.Date</td>
+                        <td><a class="btn btn-primary btn-rounded" href="/home/edit?chid=@ch.Chid" style="text-shadow:6px 6px 7px #202129">UPDATE</a> / <a class="btn btn-danger btn-rounded" href="/home/delete?chid=@ch.Chid" style="text-shadow:6px 6px 7px #202129">REMOVE</a></td>
+                      </tr>
+                    }
+                }
+            
+
+         </table>
+       </form>
+       <div align="Left"><a class="btn btn-warning btn-rounded" href="/home/insert" style="text-shadow:6px 6px 7px #202129">Add New Entries</a></div><br><br>
+       <div align="left"><a class="btn btn-info btn-rounded" href="/home/AvailableAmount" style="text-shadow:6px 6px 7px #202129">See Account Storage</a></div>
+
+  </body>
+</html>
+

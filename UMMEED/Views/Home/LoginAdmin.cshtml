@@ -1,0 +1,29 @@
+@{
+    string role = ViewData["AdminRole"] as string ;
+}
+
+
+<html>
+
+    <meta>
+    <head>
+
+    </head>
+
+    <div align = "center">
+        <h3><u style="text-shadow:6px 6px 7px #202129">Admin Login Page</u></h3>
+        <h3><u style="text-shadow:6px 6px 7px #202129">PLease Enter Your Credentials</u></h1><br>
+        @TempData["message"]</div>
+    <body style="background-image: url('/Images/loginAdmin.jpg');background-size: cover;">
+          <div align="center"> <br><br>
+        <form action="/Home/LoginAdmin" method="post">
+            <input type="hidden" name="role" id="role" value="@role"/>
+           <b style="text-shadow:6px 6px 7px #202129">USER NAME</b> : <input type="text" class="btn btn-dark btn-rounded" name="uname" id="uname" required="true" placeholder="Enter your User Name"/><br><br>
+           <b style="text-shadow:6px 6px 7px #202129">PASSWORd</b> : <input type="password" class="btn btn-dark btn-rounded" name="password" id="password" required="true" placeholder="Enter Your Password"/><br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="submit" class="btn btn-primary btn-rounded" name="btn" id="btn" style="text-shadow:6px 6px 7px #202129">Login</button>&nbsp;&nbsp;<button type="reset" class="btn btn-danger btn-rounded" name="btn1" id="btn1" style="text-shadow:6px 6px 7px #202129">Cancel</button>
+          </form>
+          </div>
+        
+    </body>
+</html>
